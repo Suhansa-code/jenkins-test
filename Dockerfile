@@ -1,5 +1,5 @@
 
-FROM int-nexus.mytaxi.lk:8082/base_images/build_alpine-3.20_go-1.23 AS builder
+FROM int-nexus.mytaxi.lk:8082/base_images/build_alpine-3.20_go-1.23.3 AS builder
 #FROM golang:1.21-alpine AS builder
 
 WORKDIR /app
@@ -14,6 +14,6 @@ COPY --from=builder /app/ping /ping
 
 RUN chmod +x /ping
 
-EXPOSE 8080
+EXPOSE 8081
 
 ENTRYPOINT ["/ping"]
