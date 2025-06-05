@@ -1,3 +1,3 @@
 module echoHttp
 
-go 1.23.3
+go 1.21.0
