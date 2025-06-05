@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "httpecho"
+        APP_NAME = "echoHttp.go"
         IMAGE_NAME = "httpecho-image"
         CONTAINER_NAME = "httpecho-container"
     }
