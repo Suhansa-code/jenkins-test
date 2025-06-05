@@ -63,12 +63,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	log.Println("[INFO] Starting echo service on :8080")
+	log.Println("[INFO] Starting echo service on :8081")
 
 	// Register the handler function with the root path
 	http.HandleFunc("/", handler)
 
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	if err := http.ListenAndServe(":8081", nil); err != nil {
 		log.Fatalf("[FATAL] Server failed to start: %v", err)
 	}
 }

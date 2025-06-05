@@ -1,4 +1,5 @@
-FROM int-nexus.mytaxi.lk:8082/base_images/build_alpine-3.20_go-1.23.5:latest AS builder
+
+FROM int-nexus.mytaxi.lk:8082/base_images/build_alpine-3.20_go-1.23 AS builder
 #FROM golang:1.21-alpine AS builder
 
 WORKDIR /app
