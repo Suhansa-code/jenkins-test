@@ -17,8 +17,8 @@ pipeline {
         stage('Build Go App') {
             steps {
                 sh 'go version' // check Go installation
-                sh 'go mod init example.com/httpecho || true'
-                sh 'go build -o ${APP_NAME} httpecho.go'
+                //sh 'go mod init example.com/httpecho || true'
+                sh 'go build -o ${APP_NAME} httpecho'
             }
         }
 
