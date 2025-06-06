@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "echoHttp.go"
-        IMAGE_NAME = "httpecho-image"
-        CONTAINER_NAME = "httpecho-container"
+        APP_NAME = "echoHttp"
+        IMAGE_NAME = "echoHttp-image"
+        CONTAINER_NAME = "echoHttp-container"
     }
 
     stages {
@@ -16,16 +16,15 @@ pipeline {
 
         stage('Build Go App') {
             steps {
-                sh 'go version' // check Go installation
-                //sh 'go mod init example.com/httpecho || true'
-                sh 'go build -o ${APP_NAME} httpecho'
+                sh 'go version'
+                sh 'go build -o ${APP_NAME} main.go'
             }
         }
 
         stage('Run Go App (local test)') {
             steps {
                 sh './${APP_NAME} &'
-                sh 'sleep 2' // wait for server to start
+                sh 'sleep 2'
                 sh 'curl http://localhost:8081 || true'
             }
         }
@@ -38,7 +37,6 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                // Stop if already running
                 sh 'docker rm -f ${CONTAINER_NAME} || true'
                 sh 'docker run -d -p 8080:8081 --name ${CONTAINER_NAME} ${IMAGE_NAME}'
                 sh 'sleep 2'

@@ -13,7 +13,7 @@ type RequestInfo struct {
 	URI     string              `json:"uri"`
 	Host    string              `json:"host"`
 	Headers map[string][]string `json:"headers"`
-	Body    string              `json:"body,omitempty"`
+	Body    string              `json:"body,omitempty"` 
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
