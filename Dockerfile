@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build echo
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o echo ./main.go
 
 FROM alpine:latest
 
