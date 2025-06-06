@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh './${APP_NAME} &'
                 sh 'sleep 2'
-                sh 'curl http://localhost:9000 || true'
+                sh 'curl http://localhost:8081 || true'
             }
         }
 
@@ -41,9 +41,9 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 sh 'docker rm -f ${CONTAINER_NAME} || true'
-                sh 'docker run -d -p 9090:8081 --name ${CONTAINER_NAME} ${IMAGE_NAME}'
+                sh 'docker run -d -p 8080:8081 --name ${CONTAINER_NAME} ${IMAGE_NAME}'
                 sh 'sleep 2'
-                sh 'curl http://localhost:9000 || true'
+                sh 'curl http://localhost:8081 || true'
             }
         }
     }
