@@ -17,7 +17,7 @@ pipeline {
         stage('Build Go App') {
             steps {
                 sh 'go version'
-                sh 'go build -o ${APP_NAME} main.go'
+                sh 'go build -o ${APP_NAME} echoHttp.go'
                 
             }
         }
