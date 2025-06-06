@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "echoHttp"
-        IMAGE_NAME = "echoHttp-image"
-        CONTAINER_NAME = "echoHttp-container"
+        APP_NAME = "echohttp"
+        IMAGE_NAME = "echohttp-image"
+        CONTAINER_NAME = "echohttp-container"
     }
 
     stages {
@@ -18,6 +18,7 @@ pipeline {
             steps {
                 sh 'go version'
                 sh 'go build -o ${APP_NAME} main.go'
+                
             }
         }
 
@@ -32,6 +33,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t ${IMAGE_NAME} .'
+                sh ''
+
             }
         }
 
