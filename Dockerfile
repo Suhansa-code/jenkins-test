@@ -16,3 +16,5 @@ RUN chmod +x /ping
 EXPOSE 8081
 
 ENTRYPOINT ["/ping"]
+
+CMD [ "./echoHttp" ]
