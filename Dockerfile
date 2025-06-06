@@ -5,7 +5,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN go build -o echoHttp main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ping
+
 
 FROM alpine:latest
 
