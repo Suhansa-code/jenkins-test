@@ -5,19 +5,18 @@ WORKDIR /app
 
 COPY . .
 
-# RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ping
+ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ping
 
-RUN go build -o echoHttp main.go
+
 
 
 FROM alpine:latest
 
-COPY --from=builder /app/ping /ping
+COPY --from=builder /app/echo /echo
 
-RUN chmod +x /ping
 
 EXPOSE 8081
 
-ENTRYPOINT ["/ping"]
+ENTRYPOINT ["/echo"]
 
-CMD [ "./echoHttp" ]
+CMD [ "./echo" ]
