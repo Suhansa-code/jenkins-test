@@ -12,7 +12,7 @@ FROM alpine:latest
 COPY --from=builder /app/echo /echo
 
 
-EXPOSE 8080
+EXPOSE 9090
 
 ENTRYPOINT ["/echo"]
 
